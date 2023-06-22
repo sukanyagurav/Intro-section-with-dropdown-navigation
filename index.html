@@ -12,31 +12,46 @@
 </head>
 <body>
 <!-- nav -->
-<header >
-  <nav class="flex">
+<header class="flex">
+    
+ <input type="checkbox" class="menu__checkbox" id="menu__toggler">
+ <label for="menu__toggler" class="menu__button">
+  <span class="hamburger">
+    &nbsp;
+  </span>
+ </label>
+ <label for="menu__toggler" class="backdrop" hidden tabindex="-1"></label>
     <img src="images/logo.svg" alt="website logo">
-    <ul>
+  <nav id="main-menu">
+  
+    <ul class="flex">
       <li>
-        <button>
-          Features
-          <img src="images/icon-arrow-down.svg" alt="" aria-hidden="true">
-        </button>
+        <div class="dropdown">
+          <button class="dropdownBtn">
+            Features
+            <img src="images/icon-arrow-down.svg" alt="" aria-hidden="true">
+          </button>
+          <div class="dropdown-menu">
+            content
+          </div>
+        </div>
+       
       </li>
       <li>
-        <button>
+
+        <button  class="dropdownBtn">
           Company
           <img src="images/icon-arrow-down.svg" alt="" aria-hidden="true">
         </button>
       </li>
       <li>
-        <a href="none">Careers</a>
+        <a href="#none">Careers</a>
       </li>
       <li>
-        <a href="none">About</a>
+        <a href="#none">About</a>
       </li>
     </ul>
-    <!-- buttons -->
-    <div class="buttons">
+    <div class="buttons flex">
       <button class="btn btn-login" >
         Login
       </button>
@@ -45,22 +60,26 @@
       </button>
     </div>
   </nav>
+   <!-- buttons -->
+  
 </header>
   <!-- main -->
-<main class="container flex">
+<main class="flex">
   <div class="image-content">
     <picture>
-     <source srcset="images/image-hero-desktop.png" aria-hidden="true" media="(min-width:760px)">
+     <source srcset="images/image-hero-desktop.png" aria-hidden="true" media="(min-width:50em)">
      <img src="images/image-hero-mobile.png" alt="" aria-hidden='true'>
     </picture>
    </div>
-  <div class="text-content flex">
+  <div class="text-container flex">
+    <div class="text-content">
     <h1>Make remote work</h1>
     <p> Get your team in sync, no matter your location. Streamline processes, 
       create team rituals, and watch productivity soar.</p>
-      <button class="btn">
+      <button class="btn btn-learnMore">
         Learn more
       </button>
+    </div>
       <div class="companies">
         <img src="images/client-databiz.svg" alt="databiz company icon">
         <img src="images/client-audiophile.svg" alt="audiophile">
