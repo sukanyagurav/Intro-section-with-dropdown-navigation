@@ -36,7 +36,7 @@ body{
     gap:1.4rem;
 }
 h1{
-    font-size:3.9rem;
+    font-size:2rem;
 }
 main{
     text-align: center;
@@ -69,8 +69,7 @@ header.flex{
 .btn-login{
     border: none;
     background-color:transparent;
-    margin-right: 1.5rem;
-    padding: 0;
+    margin-top: 2rem;
 }
 .btn-register{
     border-width: 0.7px;
@@ -82,34 +81,54 @@ header.flex{
 .dropdown-menu{
     position: relative;
     opacity: 0;
-    left: 0;
-    top:calc(100% + 2.5rem);
+    left: 1rem;
+    top:calc(100% + 1rem);
     height: 0;
     background-color: transparent;
     transform-origin:100% center;
-    transform: translateY(-5px) translateX(0.5rem) ;
+    transform: translateY(-5px);
     transition: opacity 150ms ease-in-out,
-    transform 150ms ease-in-out;
+    transform 150ms ease-in-out,height 150ms ease-in-out;
     z-index: 10;
     pointer-events: none;
+    transition-duration: 180ms;
+}
+.dropdownItems{
+    padding:1.5rem 0.5rem 0;
 }
 
-.dropdown > .dropdownBtn:focus + .dropdown-menu{
+.dropdown-Links:not(:last-child,:first-child){
+    margin: 1rem 0 ;
+}
+.dropdown-Links a{
+    display: flex;
+    align-items: center;
+    gap:0.5em;
+}
+.dropdown.active > .dropdownBtn{
+    color:black;
+}
+.dropdown.active > .dropdownBtn + .dropdown-menu{
     opacity: 1;
     height: auto;
-
-    padding: 1.5rem 0.5rem;
-    transform: translateY(0) translateX(0.5rem) ;
+    pointer-events:auto;
+    transform: translateY(0);
+  
+}
+.dropdown.active > .dropdownBtn img{
+    transform: rotate(180deg);
 }
 .dropdownBtn{
     background-color: transparent;
     display: flex;
     align-items: center;
     gap:0.5em;
-    /* padding:0.5em 0; */
     border: none;
     overflow: hidden;
     font-size: inherit;
+}
+.dropdownBtn img{
+ transition: all 180ms;
 }
 /* hamburger menu */
 nav{
@@ -121,13 +140,14 @@ nav{
     height: 100vh;
     background-color: var(--White);
     z-index: 1000;
-    padding:2rem;
+    padding:2rem 1.5rem;
     transition: all .3s ease-in-out;
+    color:var(--light-Gray);
 }
 nav ul.flex{
     flex-direction:column ;
     gap:1.3rem;
-    margin-top: 5rem;
+    margin-top: 3.55rem;
 }
 .menu__checkbox,
 .hamburger{
@@ -181,12 +201,7 @@ nav ul.flex{
 .hamburger::after{
     top:0.7rem;
 }
-.menu__button:hover .hamburger::before{
-    top:-0.8rem;
-}
-.menu__button:hover .hamburger::after{
-    top:0.8rem;
-}
+
 .menu__checkbox:checked + .menu__button .hamburger{
     background-color: transparent;
 }
@@ -240,9 +255,6 @@ main.flex{
     aspect-ratio: 3/2;
     object-fit: contain;
 }
-.buttons .btn:hover{
-    color:var(--Black);
-}
 .btn-learnMore{
     width:140px;
     background-color: black;
@@ -250,13 +262,13 @@ main.flex{
     border-width: 0.7px;
     margin-inline: auto;
 }
-.btn-learnMore:hover{
-    background-color: var(--White);
-    color: var(--Black);
-    border: 0.7px solid var(--Black);
-}
-
 @media(min-width:50em){
+    h1{
+          font-size:3.9rem;
+    }
+    .backdrop{
+        background: transparent;
+    }
     nav{
         position: relative;
         height: auto;
@@ -265,13 +277,32 @@ main.flex{
         right:0;
         padding:0;
         width: 100%;
+        background-color: transparent;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        gap:2rem;
+    }
+    .btn-login{
+        margin-top: 0;
+    }
+    .dropdown-menu{
+        position: absolute;
+        left:-1rem;
+        top:calc(100% + 0.5rem);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: 10px;
+    }
+    .dropdownItems{
+        padding:1.6rem;
+    }
+    #nav-links li:nth-child(2) .dropdown-menu .dropdownItems{
+        padding-inline:1rem;
     }
     nav ul.flex{
         flex-direction:row ;
         margin-top: 0;
-    }
-    nav ul li {
-        margin:  0;
     }
     .menu__button{
         display: none;
@@ -279,13 +310,6 @@ main.flex{
     header{
         margin-inline: auto;
         padding:2rem 1.5rem; 
-    }
-    nav{
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-        align-items: center;
-        gap:2rem;
     }
     main.flex{
         flex-direction: row-reverse;
@@ -308,5 +332,54 @@ main.flex{
     }
     .btn-learnMore{
         margin-left: 0;
+    }
+    .btn-login{
+        margin-right: 1.5rem;
+    }
+}
+.textAnimation {
+    animation: text-clip 1s 0s cubic-bezier(0.5, 0, 0.1, 1) both;
+    -webkit-animation: text-clip 1s 0s cubic-bezier(0.5, 0, 0.1, 1) both; }
+  
+@keyframes text-clip {
+    from {
+      clip-path: polygon(0% 0%, 0 100%, 0 100%, 0% 0%); }
+    to {
+      clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0%); } }
+@media (hover:hover){
+    .btn-learnMore:hover{
+        background-color: var(--White);
+        color: var(--Black);
+        border: 0.7px solid var(--Black);
+    }
+    nav li a:hover > img{
+        animation: heartBeat; 
+        animation-duration: 3s;
+    }
+    .buttons .btn:hover,
+    nav li a:hover,
+    nav li button:hover{
+        color:var(--Black);
+    }
+    .menu__button:hover .hamburger::before{
+        top:-0.8rem;
+    }
+    .menu__button:hover .hamburger::after{
+        top:0.8rem;
+    }
+}
+@media (pointer: coarse) {
+    .buttons .btn:hover,
+    nav li a:hover,
+    nav li button:hover{
+        outline:0.5px dotted var(--light-Gray);
+        outline-offset: 0.4rem;
+        color:var(--Black);
+    }
+    .btn-learnMore:hover{
+        background-color: var(--White);
+        color: var(--Black);
+        outline:0.5px dotted var(--light-Gray);
+        outline-offset: 0.5rem;
     }
 }

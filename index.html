@@ -7,8 +7,13 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
   <title>Frontend Mentor | Intro section with dropdown navigation</title>
-<link rel="stylesheet" href="style.css">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
 
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
 </head>
 <body>
 <!-- nav -->
@@ -24,25 +29,82 @@
     <img src="images/logo.svg" alt="website logo">
   <nav id="main-menu">
   
-    <ul class="flex">
+    <ul class="flex" id="nav-links">
       <li>
-        <div class="dropdown">
-          <button class="dropdownBtn">
+        <div class="dropdown" id="dropdown">
+          <button class="dropdownBtn" aria-haspopup="true" aria-expanded="false" >
             Features
             <img src="images/icon-arrow-down.svg" alt="" aria-hidden="true">
           </button>
           <div class="dropdown-menu">
-            content
+            <div class="dropdownItems">
+              <ul>
+                <li class="dropdown-Links">
+                 
+                  <a href="#">
+                    <img src="images/icon-todo.svg" alt=""aria-hidden='true'>
+                    Todo List
+                  </a>
+                </li>
+                <li class="dropdown-Links">
+                  
+                  <a href="#">
+                    <img src="images/icon-calendar.svg" alt=""aria-hidden='true'>
+                    Calendar
+                  </a>
+                </li>
+                <li class="dropdown-Links">
+                 
+                  <a href="#">
+                    <img src="images/icon-reminders.svg" alt=""aria-hidden='true'>
+                    Reminders
+                  </a>
+                </li>
+                <li class="dropdown-Links">
+               
+                  <a href="#">
+                    <img src="images/icon-planning.svg" alt=""aria-hidden='true'>
+                    Planning
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
        
       </li>
       <li>
-
-        <button  class="dropdownBtn">
-          Company
-          <img src="images/icon-arrow-down.svg" alt="" aria-hidden="true">
-        </button>
+        <div class="dropdown" id="dropdown">
+          <button  class="dropdownBtn" aria-expanded="false" aria-haspopup="true">
+            Company
+            <img src="images/icon-arrow-down.svg" alt="" aria-hidden="true">
+          </button>
+          <div class="dropdown-menu">
+            <div class="dropdownItems">
+              <ul>
+                <li class="dropdown-Links">
+                 
+                  <a href="#">
+                    History
+                  </a>
+                </li>
+                <li class="dropdown-Links">
+                  
+                  <a href="#">
+                  Our Team
+                  </a>
+                </li>
+                <li class="dropdown-Links">
+                 
+                  <a href="#">
+                   Blog
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
       </li>
       <li>
         <a href="#none">Careers</a>
@@ -68,15 +130,15 @@
   <div class="image-content">
     <picture>
      <source srcset="images/image-hero-desktop.png" aria-hidden="true" media="(min-width:50em)">
-     <img src="images/image-hero-mobile.png" alt="" aria-hidden='true'>
+     <img src="images/image-hero-mobile.png" alt="" aria-hidden='true' class="animate__animated animate__zoomIn">
     </picture>
    </div>
   <div class="text-container flex">
     <div class="text-content">
-    <h1>Make remote work</h1>
-    <p> Get your team in sync, no matter your location. Streamline processes, 
+    <h1 class="textAnimation">Make remote work</h1>
+    <p class="animate__animated animate__zoomIn"> Get your team in sync, no matter your location. Streamline processes, 
       create team rituals, and watch productivity soar.</p>
-      <button class="btn btn-learnMore">
+      <button class="btn btn-learnMore animate__animated animate__bounceIn ">
         Learn more
       </button>
     </div>
